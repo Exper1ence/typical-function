@@ -39,15 +39,16 @@ function type() {
     }
 }
 type.check = true;
-const returnValues = ['String', 'Number', 'Object', 'Function', 'Boolean', 'Array'];
-for (let value of returnValues) {
-    type[value] = function () {
-        const typeArgs = arguments;
-        return function () {
-            const result = type.apply(null, typeArgs).apply(null, arguments);
-            if (notMatched(global[value], result))throw new TypeError(`The return value should be a ${value}`);
-            return result;
-        }
-    };
-}
+//check return value
+// const returnValues = ['String', 'Number', 'Object', 'Function', 'Boolean', 'Array'];
+// for (let value of returnValues) {
+//     type[value] = function () {
+//         const typeArgs = arguments;
+//         return function () {
+//             const result = type.apply(null, typeArgs).apply(null, arguments);
+//             if (notMatched(global[value], result))throw new TypeError(`The return value should be a ${value}`);
+//             return result;
+//         }
+//     };
+// }
 module.exports = type;
