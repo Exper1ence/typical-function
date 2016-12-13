@@ -10,11 +10,14 @@ function notMatched(a, b) {
     return typeOf(a.prototype) != typeOf(b);
 }
 
-function type() {
+function typical_function() {
     const cb = Array.prototype.pop.call(arguments);
-    if (type.check == false) return cb;
+    if (typical_function.check == false) return cb;
     const types = arguments;
-    return function () {
+    return function typical() {
+        if (!_.isUndefined(cb.name)) {
+            Object.defineProperty(typical, 'name', {value: cb.name,});
+        }
         for (let i of _.range(types.length)) {
             if (notMatched(types[i], arguments[i])) {
                 let which = '';
@@ -38,7 +41,7 @@ function type() {
         return cb.apply(null, arguments);
     }
 }
-type.check = true;
+typical_function.check = true;
 //check return value
 // const returnValues = ['String', 'Number', 'Object', 'Function', 'Boolean', 'Array'];
 // for (let value of returnValues) {
@@ -51,4 +54,4 @@ type.check = true;
 //         }
 //     };
 // }
-module.exports = type;
+module.exports = typical_function;

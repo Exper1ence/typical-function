@@ -10,7 +10,7 @@ typical-function is a javascript module to check the types of the parameters of 
 ```javascript
     const func = require('typical-function');
     
-    const test = func(String, Object, (a, b) => {
+    const test = func(String, Object, function module(a, b) {
         console.log(a);
         console.log(b);
     });
