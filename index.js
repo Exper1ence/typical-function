@@ -32,7 +32,7 @@ function type() {
                         which = `${i + 1}th`;
                         break;
                 }
-                throw new TypeError(`The ${which} parameter should be a ${typeOf(types[i].prototype)}.`);
+                throw new TypeError(`The ${which} parameter should be a/an ${typeOf(types[i].prototype)}.`);
             }
         }
         return cb.apply(null, arguments);

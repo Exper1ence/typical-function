@@ -1,6 +1,6 @@
 {
   "name": "typical-function",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "lodash": "^4.17.2"
   }
